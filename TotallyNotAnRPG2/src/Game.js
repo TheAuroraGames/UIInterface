@@ -10,6 +10,7 @@ surface.textAlign = "center";
 
 canvas.addEventListener("mousemove", checkPos);
 canvas.addEventListener("mouseup", checkClick);
+window.addEventListener("keydown", onKeyDown);
 
 var GameBack;
 var backArrow = new Image();
@@ -18,7 +19,10 @@ var UInt;
 
 createBackground();
 
-
+function LoadGameOver()
+{
+	window.location.href = 'GameOverUI.html';
+}
 
 //Put In proper linking
 function LoadContinue()
@@ -69,3 +73,14 @@ function checkClick(mouseEvent){
 
 	
 	}	
+	
+	function onKeyDown(event)
+	{
+			console.log("hi");
+		switch(event.keyCode)
+		{
+			case 65://A
+			LoadGameOver();
+			break;
+		}
+	}
