@@ -22,7 +22,7 @@ function createBackground(){
 }
 
 function loadMainMenu(){
-	window.location.href = 'TotallyNotAnRpg2.html';
+	window.location.href = 'MainMenuRpg2.html';
 }
 
 uInt = setInterval(update,33.34);

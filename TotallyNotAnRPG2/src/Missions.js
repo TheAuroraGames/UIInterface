@@ -22,7 +22,7 @@ Missions.src= "../img/Missions.png";
 
 function loadNextLevel()
 {
-	window.location.href = 'TotallyNotAnRPG2.html';
+	window.location.href = 'PauseMenu.html';
 
 }
 

@@ -54,7 +54,7 @@ function loadGraphicsSettings(){
 }
 
 function loadMainMenu(){
-	window.location.href = 'TotallyNotAnRpg2.html';
+	window.location.href = 'MainMenuRpg2.html';
 }
 
 function loadPauseMenu(){

@@ -21,7 +21,7 @@ function LoadNewGame()
 //Put In proper linking
 function LoadContinue()
 {
-	window.location.href ='TotallyNotAnRpg2.html';
+	window.location.href ='PauseMenu.html';
 }
 //Put in proper linking
 function LoadSettings()

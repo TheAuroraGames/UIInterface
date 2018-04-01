@@ -65,7 +65,7 @@ createBackground();
 //Put in Proper Linking
 function LoadingScreen()
 {
-	window.location.href ='TotallyNotAnRpg2.html';
+	window.location.href ='Game.html';
 }
 
 function update()

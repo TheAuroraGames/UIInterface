@@ -22,7 +22,7 @@ function createBackground()
 
 function loadNextLevel()
 {
-	window.location.href = 'TotallyNotAnRpg2.html';
+	window.location.href = 'PauseMenu.html';
 }
 
 function loadMenu()
