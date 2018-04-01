@@ -31,7 +31,7 @@ function LoadSettings()
 //put in proper linking
 function LoadCredits()
 {
-	window.location.href ='MainMenuRpg2.html';
+	window.location.href ='Credits.html';
 }
 
 function update ()
