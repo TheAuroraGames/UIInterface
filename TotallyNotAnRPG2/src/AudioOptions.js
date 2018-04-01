@@ -53,11 +53,6 @@ var AudioData = new Audio("../aud/Welcome Screen.mp3");
 AudioData.loop = true;
 AudioData.play();
 
-var UiAduioData = new Audio("../aud/Ui Sound.wav");
-UiAduioData.loop = true;
-UiAduioData.play();
-
-
 
 var masterVolume = document.getElementById("master");
 var musicVolume = document.getElementById("music");
