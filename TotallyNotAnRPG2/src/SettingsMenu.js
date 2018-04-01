@@ -12,12 +12,16 @@ var audio = new Image();
 var mappings = new Image();
 var gameplay = new Image();
 var graphics = new Image();
+var mainMenuButton = new Image();
+var pauseMenuButton = new Image();
 
 accessibility.src = "../img/AccessibilityOptionsButton.png";
 audio.src = "../img/AudioSettingsButton.png";
 mappings.src = "../img/ControllerMappingsButton.png";
 gameplay.src = "../img/GameplaySettingsButton.png";
 graphics.src = "../img/GraphicsSettingsButton.png";
+mainMenuButton.src = "../img/BackToMainMenuButton.png";
+pauseMenuButton.src = "../img/BackToPauseMenuButton.png";
 
 var buttonX = [500,550,500,510,530];
 var buttonY = [150,230,330,415,500];
@@ -49,6 +53,14 @@ function loadGraphicsSettings(){
 	window.location.href = 'GraphicsSettings.html'; 
 }
 
+function loadMainMenu(){
+	window.location.href = 'TotallyNotAnRpg2.html';
+}
+
+function loadPauseMenu(){
+	window.location.href = 'PauseMenu.html';
+}
+
 function loadSettingsMenu(){
 	window.location.href = 'SettingsMenu.html';
 }
@@ -77,6 +89,8 @@ function render(){
 	surface.drawImage(mappings, buttonX[2], buttonY[2], buttonWidth[2], buttonHeight[2]);
 	surface.drawImage(gameplay, buttonX[3], buttonY[3], buttonWidth[3], buttonHeight[3]);
 	surface.drawImage(graphics, buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4]);
+	surface.drawImage(mainMenuButton, 350, 520, 150, 70);
+	surface.drawImage(pauseMenuButton, 905, 520, 150, 70);
 }
 
 function checkPos (mouseEvent){
@@ -115,11 +129,44 @@ function checkClick (mouseEvent){
 		canvas.removeEventListener("mousemove", checkPos);
 		canvas.removeEventListener("mouseup", checkClick);
 	}
+	else if (mouseX > 350 && mouseX < 500 && mouseY > 520 && mouseY < 590){
+		loadMainMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 905 && mouseX < 1055 && mouseY > 520 && mouseY < 590){
+		loadPauseMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
 	else{ 
 		loadSettingsMenu();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
+
+
+
+
+
+	
+
 	
 	
 	
