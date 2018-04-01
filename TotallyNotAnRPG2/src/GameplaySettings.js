@@ -1,5 +1,5 @@
 var canvas = document.querySelector("canvas");
-canvas.width = 1350;
+canvas.width = 1395;
 canvas.height = 629;
 
 var surface = canvas.getContext("2d");
@@ -9,9 +9,11 @@ var uInt;
 var background;
 var checkBox = new Image();
 var checkmark = new Image();
+var backButton = new Image();
 
 checkBox.src = "../img/Checkbox.png";
 checkmark.src = "../img/Checkmark.png";
+backButton.src = "../img/BackButton.png";
 
 var minimapClicks = 0;
 var objectiveClicks = 0;
@@ -47,69 +49,77 @@ function update()
 function render(){
 	if (remainder1 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkmark,655,235,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder1 == 1 && remainder2 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkmark,655,235,50,42);
 		surface.drawImage(checkmark,785,325,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder2 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkmark,785,325,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder2 == 1 && remainder3 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkmark,785,325,50,42);
 		surface.drawImage(checkmark,725,420,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder3 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkmark,725,420,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder1 == 1 && remainder3 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkmark,655,235,50,42);
 		surface.drawImage(checkmark,725,420,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else if (remainder1 == 1 && remainder2 == 1 && remainder3 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
 		surface.drawImage(checkBox,720,415,70,67);
 		surface.drawImage(checkmark,655,235,50,42);
 		surface.drawImage(checkmark,785,325,50,42);
 		surface.drawImage(checkmark,725,420,50,42);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 	else{
 		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(background,0,0,1350,629);
+		surface.drawImage(background,0,0,1395,629);
 		surface.drawImage(checkBox,650,230,70,67);
 		surface.drawImage(checkBox,780,320,70,67);
-		surface.drawImage(checkBox,720,415,70,67)
+		surface.drawImage(checkBox,720,415,70,67);
+		surface.drawImage(backButton,395,525,125,59);
 	}
 }
 
@@ -135,6 +145,11 @@ function checkClick (mouseEvent){
 	else if (mouseX > 720 && mouseX < 790 && mouseY > 415 && mouseY < 482){
 		notificationClicks++;
 		remainder3 = notificationClicks % 2;
+	}
+	else if (mouseX > 395 && mouseX < 520 && mouseY > 525 && mouseY < 584){
+		loadSettingsScreen();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
 	}
 }
 

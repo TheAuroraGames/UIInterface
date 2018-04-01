@@ -14,12 +14,12 @@ var backButton = new Image();
 mappingsBackground.src = "../img/Controller Mappings.png";
 mappingsBackground2.src = "../img/ControllerMappings2.png";
 mappingsButton.src = "../img/SwitchMappingsButton.png";
-backButton.src = "../img/backArrow.png";
+backButton.src = "../img/BackButton.png";
 
 var mouseX;
 var mouseY;
 
-var clicks = 0;
+var clicks = 1;
 var remainder;
 
 //MainBackground();
@@ -48,12 +48,14 @@ function render(){
 		surface.clearRect(0,0,canvas.width,canvas.height);
 		surface.drawImage(mappingsBackground,0,0,1350,629);
 		surface.drawImage(mappingsButton,660,510,175,82);
+		surface.drawImage(backButton,900,510,125,59);
 	}
 	
 	else {
 		surface.clearRect(0,0,canvas.width,canvas.height);
 		surface.drawImage(mappingsBackground2,0,0,1350,629);
 		surface.drawImage(mappingsButton,660,510,175,82);
+		surface.drawImage(backButton,900,510,125,59);
 	}
 }
 
@@ -71,6 +73,11 @@ function checkClick (mouseEvent){
 	if (mouseX > 660 && mouseX < 835 && mouseY > 510 && mouseY < 592){
 		clicks++;
 		remainder = clicks % 2;
+	}
+	else if (mouseX > 900 && mouseX < 1025 && mouseY > 510 && mouseY < 569){
+		loadSettingsMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
 	}
 }
 	

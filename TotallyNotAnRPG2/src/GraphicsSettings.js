@@ -10,11 +10,12 @@ var backgroundScreen;
 var checkBox = new Image();
 var checkmark = new Image();
 var checkmark2 = new Image();
-
+var backButton = new Image();
 
 checkmark.src = "../img/Checkmark.png";
 checkmark2.src = "../img/Checkmark2.png";
 checkBox.src = "../img/Checkbox.png";
+backButton.src = "../img/BackButton.png";
 
 var aaClicks = 0;
 var vsClicks = 0;
@@ -52,6 +53,7 @@ function render(){
 		surface.drawImage(checkBox,630,220,70,67);
 		surface.drawImage(checkBox,670,330,70,67);
 		surface.drawImage(checkmark,635,225,50,42);
+		surface.drawImage(backButton,400,540,125,59);
 	}
 	else if (remainder1 == 1 && remainder2 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
@@ -60,6 +62,7 @@ function render(){
 		surface.drawImage(checkBox,670,330,70,67);
 		surface.drawImage(checkmark,635,225,50,42);
 		surface.drawImage(checkmark2,675,335,50,42);
+		surface.drawImage(backButton,400,540,125,59);
 	}
 	else if (remainder2 == 1){
 		surface.clearRect(0,0,canvas.width,canvas.height);
@@ -67,12 +70,14 @@ function render(){
 		surface.drawImage(checkBox,630,220,70,67);
 		surface.drawImage(checkBox,670,330,70,67);
 		surface.drawImage(checkmark2,675,335,50,42);
+		surface.drawImage(backButton,400,540,125,59);
 	}
 	else{
 		surface.clearRect(0,0,canvas.width,canvas.height);
 		surface.drawImage(backgroundScreen,0,0,1350,629);
 		surface.drawImage(checkBox,630,220,70,67);
 		surface.drawImage(checkBox,670,330,70,67);
+		surface.drawImage(backButton,400,540,125,59);
 	}
 }
 
@@ -95,6 +100,12 @@ function checkClick (mouseEvent){
 	else if (mouseX > 670 && mouseX < 740 && mouseY > 330 && mouseY < 397){
 		vsClicks++;
 		remainder2 = vsClicks % 2;
+	}
+	
+	else if (mouseX > 400 && mouseX < 525 && mouseY > 540 && mouseY < 599){
+		loadSettingsMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
 	}
 }
 

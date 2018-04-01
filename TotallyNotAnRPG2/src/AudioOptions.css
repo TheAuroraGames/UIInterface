@@ -27,4 +27,13 @@ h4
 	text-align:left;
 }
 
+#stage
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1350px;
+	height:629px;
+	background-color: black;
+}
+
 
