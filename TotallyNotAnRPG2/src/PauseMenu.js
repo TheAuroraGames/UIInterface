@@ -21,10 +21,10 @@ Crafting.src = "../img/Crafting.png";
 MainMenu1.src = "../img/MainMenu1.png";
 
 
-var buttonX = [550,563,568,425,340,600];
-var buttonY = [460,495,540,524,650,630];
-var buttonWidth = [175,200,190,180,90,100];
-var buttonHeight = [87,82,75,60,45,58];
+var buttonX = [550,563,560,555,575,570];
+var buttonY = [460,495,540,578,605,645];
+var buttonWidth = [175,200,220,230,210,220];
+var buttonHeight = [87,82,75,80,95,90];
 
 
 var mouseX;
@@ -78,7 +78,7 @@ function checkPos (mouseEvent){
 }
 
 function checkClick(mouseEvent){
-	if (mouseX > 405 && mouseX < 503 && mouseY > 545 && mouseY < 581){
+	if (mouseX > 550 && mouseX < 650 && mouseY > 460 && mouseY < 581){
 			loadNextLevel();
 			canvas.removeEventListener("mousemove", checkPos);
 			canvas.removeEventListener("mouseup", checkClick);
