@@ -49,9 +49,13 @@ function checkClick (mouseEvent){
 	}
 }
 
-var AudioData = new Audio("../aud/jump.wav");
+var AudioData = new Audio("../aud/Welcome Screen.mp3");
 AudioData.loop = true;
 AudioData.play();
+
+var UiAduioData = new Audio("../aud/Ui Sound.wav");
+UiAduioData.loop = true;
+UiAduioData.play();
 
 
 
@@ -65,6 +69,7 @@ uiVolume.addEventListener("mousemove", changeUiVolume);
 
 function changeMasterVolume(){
 	AudioData.volume = masterVolume.value/100;
+	UiAduioData.volume = uiVolume.value/100;
 }
 
 function changeMusicVolume(){
@@ -72,8 +77,9 @@ function changeMusicVolume(){
 }
 
 function changeUiVolume(){
-	AudioData.volume = uiVolume.value/100;
+	UiAudioData.volume = uiVolume.value/100;
 }
+
 
 
 

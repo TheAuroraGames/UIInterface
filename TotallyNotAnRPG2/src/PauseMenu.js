@@ -21,8 +21,8 @@ Crafting.src = "../img/Crafting.png";
 MainMenu1.src = "../img/MainMenu1.png";
 
 
-var buttonX = [550,563,560,555,575,570];
-var buttonY = [460,495,540,578,605,645];
+var buttonX = [400,410,400,620,640,630];
+var buttonY = [450,550,655,460,550,650];
 var buttonWidth = [175,200,220,230,210,220];
 var buttonHeight = [87,82,75,80,95,90];
 
@@ -39,9 +39,29 @@ PauseMenu = new Image();
 PauseMenu.src= "../img/PauseMenu.png";
 }
 
-function loadMenu()
+function loadMissions(){
+	window.location.href = 'Missions.html';
+}
+
+function loadSettingsMenu(){
+	window.location.href = 'SettingsMenu.html';
+}
+
+function loadMap(){
+	window.location.href = 'Map.html';
+}
+
+function loadSkillTree(){
+	window.location.href = 'SkillTree.html';
+}
+
+function loadCraftingMenu(){
+	window.location.href = 'Crafting.html';
+}
+
+function loadMainMenu()
 {
-	window.location.href = "MainMenu.html";
+	window.location.href = 'MainMenuRpg2.html';
 }
 
 
@@ -78,13 +98,45 @@ function checkPos (mouseEvent){
 }
 
 function checkClick(mouseEvent){
-	if (mouseX > 550 && mouseX < 650 && mouseY > 460 && mouseY < 581){
-			loadNextLevel();
-			canvas.removeEventListener("mousemove", checkPos);
-			canvas.removeEventListener("mouseup", checkClick);
-		}
-	else
-		{
-			loadMenu();
-		}
-	}	
+	if (mouseX > 400 && mouseX < 575 && mouseY > 450 && mouseY < 537){
+		loadMissions();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 410 && mouseX < 610 && mouseY > 550 && mouseY < 632){
+		loadSettingsMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 400 && mouseX < 620 && mouseY > 655 && mouseY < 730){
+		loadMap();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 620 && mouseX < 850 && mouseY > 460 && mouseY < 540){
+		loadSkillTree();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 640 && mouseX < 850 && mouseY > 550 && mouseY < 645){
+		loadCraftingMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+	else if (mouseX > 630 && mouseX < 850 && mouseY > 650 && mouseY < 740){
+		loadMainMenu();
+		canvas.removeEventListener("mousemove", checkPos);
+		canvas.removeEventListener("mouseup", checkClick);
+	}
+}
+	
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
