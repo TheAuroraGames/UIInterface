@@ -26,7 +26,7 @@ function LoadContinue()
 //Put in proper linking
 function LoadSettings()
 {
-	window.location.href ='TotallyNotAnRpg2.html';
+	window.location.href ='SettingsMenu.html';
 }
 //put in proper linking
 function LoadCredits()

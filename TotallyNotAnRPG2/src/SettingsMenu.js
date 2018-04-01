@@ -30,23 +30,23 @@ var mouseY;
 createBackground();
 
 function loadAccessibilitySettings(){
-	//window.location.href = 
+	window.location.href = 'AccessibilityOptions.html';
 }
 
 function loadAudioSettings(){
-	//window.location.href = 
+	window.location.href = 'AudioOptions.html';
 }
 
 function loadMappingsSettings(){
-	//window.location.href = 
+	window.location.href = 'ControllerMappings.html';
 }
 
 function loadGameplaySettings(){
-	//window.location.href = 
+	window.location.href = 'GameplaySettings.html';
 }
 
 function loadGraphicsSettings(){
-	//window.location.href = 
+	window.location.href = 'GraphicsSettings.html'; 
 }
 
 function loadSettingsMenu(){
@@ -61,7 +61,7 @@ function createBackground(){
 uInt = setInterval(update,33.34);
 
 canvas.addEventListener("mousemove", checkPos);
-//canvas.addEventListener("mouseup", checkClick);
+canvas.addEventListener("mouseup", checkClick);
 
 function update()
 {
