@@ -21,7 +21,7 @@ function LoadNewGame()
 //Put In proper linking
 function LoadContinue()
 {
-	window.location.href ='PauseMenu.html';
+	window.location.href ='Game.html';
 }
 //Put in proper linking
 function LoadSettings()
