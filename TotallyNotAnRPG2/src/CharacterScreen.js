@@ -65,7 +65,7 @@ createBackground();
 //Put in Proper Linking
 function LoadingScreen()
 {
-	window.location.href ='Game.html';
+	window.location.href ='MainHUD.html';
 }
 
 function update()
