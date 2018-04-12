@@ -3,7 +3,7 @@ canvas.width = 1024;
 canvas.height = 1024;
 var surface = canvas.getContext("2d");
 var uInt;
-var HUD
+var HUD;
 var mouseX;
 var mouseY;
 
@@ -51,14 +51,14 @@ function checkClick(mouseEvent){
 	
 	}	
 	
-	function onKeyDown(event)
-	{
-			console.log("hi");
+function onKeyDown(event)
+{
+		console.log("hi");
 		switch(event.keyCode)
-		{
-			case 65://A
-			LoadGameOver();
+	{
+		case 65://A
+		LoadGameOver();
 			break;
-		}
 	}
+}
 
