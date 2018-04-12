@@ -6,10 +6,18 @@ var uInt;
 var HUD;
 var mouseX;
 var mouseY;
+var MiniMap;
+var Navi;
 
 canvas.addEventListener("mousemove", checkPos);
 canvas.addEventListener("mouseup", checkClick);
 window.addEventListener("keydown", onKeyDown);
+
+MiniMap = new Image();
+MiniMap.src = "../img/rustmap.png";
+
+Navi= new Image ();
+Navi.src = "../img/navigator_icon.png";
 
 HUDimage();
 
@@ -18,18 +26,21 @@ function HUDimage()
 	HUD = new Image();
 	HUD.src = "../img/HUD_main.png";
 }
-
-function render ()
-{
-		surface.clearRect(0,0,canvas.width,canvas.height);
-		surface.drawImage(HUD,0,0,1030,1100);
-}
-
 function update()
 {
 	render();
 }
 uInt =setInterval(update,33.34);
+
+function render ()
+{
+		surface.clearRect(0,0,canvas.width,canvas.height);
+		surface.drawImage(HUD,0,0,1030,1100);
+		surface.drawImage(MiniMap,811,508,195,185);
+		surface.drawImage(Navi,830,665,16,16);
+}
+
+
 
 function checkPos (mouseEvent){
 	if(mouseEvent.pageX || mouseEvent.pageY == 0){
@@ -53,7 +64,7 @@ function checkClick(mouseEvent){
 	
 function onKeyDown(event)
 {
-		console.log("hi");
+		
 		switch(event.keyCode)
 	{
 		case 65://A
