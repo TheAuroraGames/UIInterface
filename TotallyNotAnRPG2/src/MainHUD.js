@@ -8,19 +8,35 @@ var mouseX;
 var mouseY;
 var MiniMap;
 var Navi;
+var NaviData;
+var leftPressed;
+var rightPressed;
+var upPressed;
+var downPressed;
 
 canvas.addEventListener("mousemove", checkPos);
-canvas.addEventListener("mouseup", checkClick);
 window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keyup", onKeyUp);
 
 MiniMap = new Image();
 MiniMap.src = "../img/rustmap.png";
 
-Navi= new Image ();
-Navi.src = "../img/navigator_icon.png";
+
 
 HUDimage();
+createNavi();
 
+function createNavi()
+{
+	Navi= new Image ();
+	Navi.src = "../img/navigator_icon.png";
+	NaviData={
+	x:830,
+	y:665,
+	width:16,
+	height:16
+	};
+}
 function HUDimage()
 {
 	HUD = new Image();
@@ -37,7 +53,29 @@ function render ()
 		surface.clearRect(0,0,canvas.width,canvas.height);
 		surface.drawImage(HUD,0,0,1030,1100);
 		surface.drawImage(MiniMap,811,508,195,185);
-		surface.drawImage(Navi,830,665,16,16);
+		if (leftPressed== true)
+		{
+			surface.drawImage(Navi,NaviData.x--,NaviData.y,NaviData.width,NaviData.height);
+		}
+		else if (rightPressed==true)
+		{
+			surface.drawImage(Navi,NaviData.x++,NaviData.y,NaviData.width,NaviData.height);
+		}
+		else if (upPressed==true){
+			surface.drawImage(Navi,NaviData.x,NaviData.y--,NaviData.width,NaviData.height);
+		}
+		else if (downPressed==true){
+			surface.drawImage(Navi,NaviData.x,NaviData.y++,NaviData.width,NaviData.height);
+		}
+		else
+		{
+			surface.drawImage(Navi,NaviData.x,NaviData.y,NaviData.width,NaviData.height);
+		}
+		
+		
+		
+		
+		
 }
 
 
@@ -52,15 +90,6 @@ function checkPos (mouseEvent){
 	}
 }
 
-function checkClick(mouseEvent){
-	if (mouseX > 750 && mouseX < 878 && mouseY > 600 && mouseY < 720){
-			LoadContinue();
-			canvas.removeEventListener("mousemove", checkPos);
-			canvas.removeEventListener("mouseup", checkClick);
-		}
-
-	
-	}	
 	
 function onKeyDown(event)
 {
@@ -68,8 +97,36 @@ function onKeyDown(event)
 		switch(event.keyCode)
 	{
 		case 65://A
-		LoadGameOver();
+			leftPressed = true;
 			break;
+		case 68: // D
+			rightPressed = true;
+			break;
+		case 87: // W
+			upPressed= true;
+			break;
+		case 83://S
+			downPressed = true;
+			break;
+			
 	}
 }
-
+function onKeyUp(event)
+{
+		switch(event.keyCode)
+	{
+		case 65://A
+			leftPressed = false;
+			break;
+		case 68: // D
+			rightPressed = false;
+			break;
+		case 87: // W
+			upPressed= false;
+			break;
+		case 83://S
+			downPressed = false;
+			break;
+			
+	}
+}
