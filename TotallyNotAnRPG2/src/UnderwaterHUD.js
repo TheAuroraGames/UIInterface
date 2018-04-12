@@ -1,6 +1,6 @@
 var canvas = document.querySelector("canvas");
-canvas.width = 750;
-canvas.height = 1125;
+canvas.width = 1024;
+canvas.height = 1024;
 
 var surface = canvas.getContext("2d");
 
@@ -9,6 +9,11 @@ var underwaterHUD;
 var mouseX;
 var mouseY;
 
+var healthBar = {
+	x: 100;
+	y: 100;
+	width: 
+
 canvas.addEventListener("mousemove", checkPos);
 //canvas.addEventListener("mouseup", checkClick);
 //window.addEventListener("keydown", onKeyDown);
@@ -16,13 +21,13 @@ canvas.addEventListener("mousemove", checkPos);
 HUDbackground();
 
 function HUDbackground(){
-	HUDbackground = new Image();
-	HUDbackground.src = "../img/underwater_hud.jpg";
+	underwaterHUD = new Image();
+	underwaterHUD.src = "../img/HUD_main.png";
 }
 
 function render(){
 	surface.clearRect(0,0,canvas.width,canvas.height);
-	surface.drawImage(underwaterHUD,0,0,750,1125);
+	surface.drawImage(underwaterHUD,0,0,1030,1100);
 }
 
 function update(){
