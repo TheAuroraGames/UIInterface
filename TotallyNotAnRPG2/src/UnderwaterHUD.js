@@ -16,6 +16,12 @@ var mouseX;
 var mouseY;
 var minimap;
 var icon;
+var iconData;
+
+var leftPressed;
+var rightPressed;
+var upPressed;
+var downPressed;
 
 var healthBar = {
 	x: 240,
@@ -46,10 +52,32 @@ var expBar = {
 	height: 10
 };
 
+function createIcon (){
+	icon = new Image();
+	icon.src = "../img/navigator_icon.png"
+	iconData = {
+	x:830,
+	y:665,
+	width:16,
+	height:16
+	};
+}
+
+function loadGameOver (){
+	window.location.href = "GameOverUI.html";
+}
+
+function checkDeath (){
+	if (currentHealth == 0){
+		loadGameOver();
+	}
+}
+
 
 canvas.addEventListener("mousemove", checkPos);
 //canvas.addEventListener("mouseup", checkClick);
 window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keyup", onKeyUp);
 
 minimap = new Image();
 minimap.src = "../img/rustmap.png";
@@ -58,6 +86,8 @@ icon = new Image();
 icon.src = "../img/navigator_icon.png";
 
 HUDbackground();
+createIcon();
+
 
 function HUDbackground(){
 	underwaterHUD = new Image();
@@ -66,6 +96,7 @@ function HUDbackground(){
 
 function update(){
 	render();
+	checkDeath();
 	oxygenLoss();
 }
 
@@ -76,7 +107,6 @@ function render(){
 	surface.drawImage(underwaterHUD,0,0,1030,1100);
 	
 	surface.drawImage(minimap,811,508,195,185);
-	surface.drawImage(icon,830,665,16,16);
 	
 	surface.fillStyle = "red";
 	surface.fillRect(healthBar.x, healthBar.y, healthBar.width, healthBar.height);
@@ -92,6 +122,44 @@ function render(){
 	
 	surface.fillStyle = "orange";
 	surface.fillRect(expBar.x, expBar.y, expBar.width, expBar.height);
+	
+	surface.fillStyle = "black";
+	surface.fillText("EXP", 205, 238);
+	
+	surface.fillStyle = "black";
+	surface.fillText("Health:" + currentHealth + "/10", 405 , 618)
+	
+	surface.fillStyle = "black";
+	surface.fillText("Oxygen:" + currentAir + "/10", 405, 648);
+	
+	if (leftPressed== true)
+		{
+			surface.drawImage(icon,iconData.x--,iconData.y,iconData.width,iconData.height);
+			if (iconData.x < 810)
+				iconData.x = 810;
+		}
+	else if (rightPressed==true)
+		{
+			surface.drawImage(icon,iconData.x++,iconData.y,iconData.width,iconData.height);
+			if (iconData.x > 990)
+				iconData.x = 990;
+		}
+	else if (upPressed==true){
+			surface.drawImage(icon,iconData.x,iconData.y--,iconData.width,iconData.height);
+			if (iconData.y < 508)
+				iconData.y = 508;
+		}
+	else if (downPressed==true){
+			surface.drawImage(icon,iconData.x,iconData.y++,iconData.width,iconData.height);
+			if (iconData.y > 678)
+				iconData.y = 678;
+		}
+	else
+		{
+			surface.drawImage(icon,iconData.x,iconData.y,iconData.width,iconData.height);
+		}
+		
+	
 }
 
 function checkPos (mouseEvent){
@@ -130,35 +198,63 @@ function onKeyDown (event){
 				airPercent = currentAir/maxAir;
 			}
 			break;
+		case 65://A
+			leftPressed = true;
+			break;
+		case 68: // D
+			rightPressed = true;
+			break;
+		case 87: // W
+			upPressed= true;
+			break;
+		case 83://S
+			downPressed = true;
+			break;
 		
 	}
 }
 
-function oxygenLoss (){
-	if (oxyLoss < 11){
-		currentAir = currentAir - 0.03;
-		if (currentAir > 0){
-			airPercent = currentAir/maxAir;
-		}
-		
-		else {
-			currentAir = 0
-			airPercent = currentAir/maxAir;
-		}
-	}
-	
-	else {
-		currentHealth = currentHealth - 0.03;
-		if (currentHealth > 0){
-			healthPercent = currentHealth/maxHealth;
-		}
-		
-		else {
-			currentHealth = 0;
-			healthPercent = currentHealth/maxHealth;
-		}
+function onKeyUp(event)
+{
+		switch(event.keyCode)
+	{
+		case 65://A
+			leftPressed = false;
+			break;
+		case 68: // D
+			rightPressed = false;
+			break;
+		case 87: // W
+			upPressed= false;
+			break;
+		case 83://S
+			downPressed = false;
+			break;
+			
 	}
 }
+
+function oxygenLoss (){
+	if (oxyLoss ==1){
+		currentAir--;
+		airPercent = currentAir/maxAir;
+		oxyLoss = 0;
+		if (currentAir <= 0){
+			oxyLoss =3;
+			currentAir = 0;
+		}
+	}
+		
+	else if (oxyLoss == 4){
+			currentHealth--;
+			healthPercent = currentHealth/maxHealth;
+			oxyLoss = 3;
+			if (currentHealth < 0){
+			currentHealth = 0;
+			
+		}
+		}
+	}
 	
 
 
