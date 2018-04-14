@@ -56,16 +56,20 @@ function render ()
 		if (leftPressed== true)
 		{
 			surface.drawImage(Navi,NaviData.x--,NaviData.y,NaviData.width,NaviData.height);
+			if (NaviData.x<810) NaviData.x =810;
 		}
 		else if (rightPressed==true)
 		{
 			surface.drawImage(Navi,NaviData.x++,NaviData.y,NaviData.width,NaviData.height);
+			if (NaviData.x>990) NaviData.x= 990;
 		}
 		else if (upPressed==true){
 			surface.drawImage(Navi,NaviData.x,NaviData.y--,NaviData.width,NaviData.height);
+			if (NaviData.y<508) NaviData.y = 508;
 		}
 		else if (downPressed==true){
 			surface.drawImage(Navi,NaviData.x,NaviData.y++,NaviData.width,NaviData.height);
+			if (NaviData.y>678) NaviData.y=678;
 		}
 		else
 		{
