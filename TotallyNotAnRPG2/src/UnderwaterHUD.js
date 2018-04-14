@@ -175,28 +175,6 @@ function checkPos (mouseEvent){
 function onKeyDown (event){
 	switch (event.keyCode)
 	{
-		case 75://k
-			currentHealth--;
-			if (currentHealth > 0){
-				healthPercent= currentHealth/maxHealth;
-			}
-			
-			else {
-				currentHealth = 0;
-				healthPercent = currentHealth/maxHealth;
-			}
-			break;
-		
-		case 76://l
-			currentAir--;
-			if (currentAir > 0){
-				airPercent = currentAir/maxAir;
-			}
-			
-			else {
-				currentAir = 0;
-				airPercent = currentAir/maxAir;
-			}
 			break;
 		case 65://A
 			leftPressed = true;
