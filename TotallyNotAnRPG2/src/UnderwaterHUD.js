@@ -116,10 +116,14 @@ function render(){
 	
 	surface.fillStyle = "yellow";
 	surface.fillRect(airBar.x, airBar.y, airBar.width, airBar.height);
-	
+	if(airPercent>1){
+		surface.fillStyle = "blue";
+	surface.fillRect(airBar.x, airBar.y, airBar.width, airBar.height);
+	}
+	else{
 	surface.fillStyle = "blue";
 	surface.fillRect(airBar.x, airBar.y, airBar.width * airPercent, airBar.height);
-	
+	}
 	surface.fillStyle = "orange";
 	surface.fillRect(expBar.x, expBar.y, expBar.width, expBar.height);
 	
@@ -128,9 +132,15 @@ function render(){
 	
 	surface.fillStyle = "black";
 	surface.fillText("Health:" + currentHealth + "/10", 405 , 618)
-	
+	if(currentAir>=10){
+	surface.fillStyle = "black";
+	surface.fillText("Oxygen: 10/10", 405, 648);
+	}
+	else{
 	surface.fillStyle = "black";
 	surface.fillText("Oxygen:" + currentAir + "/10", 405, 648);
+	}
+	
 	
 	if (leftPressed== true)
 		{
@@ -208,7 +218,13 @@ function onKeyUp(event)
 		case 83://S
 			downPressed = false;
 			break;
-			
+		case 76://L
+			if(currentAir != 0)
+			{
+				currentAir++;
+				airPercent = currentAir/maxAir;
+			}
+			else currentAir = 0;
 	}
 }
 
