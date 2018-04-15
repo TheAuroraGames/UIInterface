@@ -175,7 +175,7 @@ function checkPos (mouseEvent){
 function onKeyDown (event){
 	switch (event.keyCode)
 	{
-			break;
+			
 		case 65://A
 			leftPressed = true;
 			break;
