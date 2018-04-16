@@ -25,7 +25,7 @@ GameOver.src= "../img/Game Over.png";
 
 function loadContinue()
 {
-	window.location.href = 'Game.html';
+	window.location.href = 'MainHUD.html';
 
 }
 function update ()
@@ -60,7 +60,7 @@ function checkClick(mouseEvent){
 			canvas.removeEventListener("mouseup", checkClick);
 		}
 	else if (mouseX > 415 && mouseX < 610 && mouseY > 460 && mouseY < 516){
-			//	loadNextLevel();
+				loadNextLevel();
 				canvas.removeEventListener("mousemove", checkPos);
 				canvas.removeEventListener("mouseup", checkClick);
 		}

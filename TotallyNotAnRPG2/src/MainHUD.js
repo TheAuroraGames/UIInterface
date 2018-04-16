@@ -18,6 +18,11 @@ canvas.addEventListener("mousemove", checkPos);
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 
+function LoadNextLevel()
+{
+	window.location.href ='UnderwaterHUD.html';
+}
+
 MiniMap = new Image();
 MiniMap.src = "../img/rustmap.png";
 
@@ -112,7 +117,9 @@ function onKeyDown(event)
 		case 83://S
 			downPressed = true;
 			break;
-			
+		case 88://X
+			LoadNextLevel();
+			break;
 	}
 }
 function onKeyUp(event)

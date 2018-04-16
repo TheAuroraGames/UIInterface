@@ -14,6 +14,12 @@ var rightPressed;
 var upPressed;
 var downPressed;
 
+
+function LoadNextLevel()
+{
+	window.location.href ='WeaponWheel.html';
+}
+
 var fuelBar = {
 	x: 240,
 	y: 610,
@@ -251,6 +257,9 @@ function onKeyDown(event)
 				currentHeat = 10;
 				heatPercent = currentHeat/maxHeat;
 			}
+			break;
+		case 88://X
+			LoadNextLevel();
 			break;
 	}
 }

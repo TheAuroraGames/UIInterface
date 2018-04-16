@@ -15,7 +15,12 @@ var upPressed;
 var downPressed;
 var isVisible = false;
 var isChosen = false;
-var WeaponChoice
+var WeaponChoice;
+
+function LoadNextLevel()
+{
+	window.location.href ='PauseMenu.html';
+}
 
 
 
@@ -151,6 +156,9 @@ function onKeyDown(event)
 			WeaponIndex++;
 			WeaponIndex=WeaponIndex%5;
 			createWeapon();
+			break;
+		case 88://X
+			LoadNextLevel();
 			break;
 		
 	}

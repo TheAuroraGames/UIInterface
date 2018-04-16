@@ -63,6 +63,12 @@ function createIcon (){
 	};
 }
 
+function LoadNextLevel()
+{
+	window.location.href ='DrivingHUD.html';
+}
+
+
 function loadGameOver (){
 	window.location.href = "GameOverUI.html";
 }
@@ -197,6 +203,9 @@ function onKeyDown (event){
 			break;
 		case 83://S
 			downPressed = true;
+			break;
+		case 88://X
+			LoadNextLevel();
 			break;
 		
 	}

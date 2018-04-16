@@ -21,7 +21,7 @@ function LoadNewGame()
 //Put In proper linking
 function LoadContinue()
 {
-	window.location.href ='Game.html';
+	window.location.href ='MainHUD.html';
 }
 //Put in proper linking
 function LoadSettings()
